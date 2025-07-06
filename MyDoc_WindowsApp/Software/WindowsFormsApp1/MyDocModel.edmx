@@ -1,0 +1,928 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="RWA2324_18_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Appointment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Appointment_Date" Type="datetime" Nullable="false" />
+          <Property Name="ID_Doctor" Type="int" Nullable="false" />
+          <Property Name="ID_Patient" Type="int" Nullable="false" />
+          <Property Name="Zoom_Link" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Appointment_Requests">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Symptoms" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Request_Date" Type="date" Nullable="false" />
+          <Property Name="ID_Patient" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Doctors">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Surname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="License_Num" Type="int" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Health_Catalog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="float" Nullable="false" />
+          <Property Name="Max_Blood_Extractions" Type="int" Nullable="false" />
+          <Property Name="Max_Consultations" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Package_Services">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'RWA2324_18_DB.dbo.Packages/Services_Catalog' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Packages/Services_Catalog">
+          <Key>
+            <PropertyRef Name="ID_Package" />
+            <PropertyRef Name="ID_Service" />
+          </Key>
+          <Property Name="ID_Package" Type="int" Nullable="false" />
+          <Property Name="ID_Service" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Patient_Packages">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Used_Consultations" Type="int" Nullable="false" />
+          <Property Name="Used_Blood_Extractions" Type="int" Nullable="false" />
+          <Property Name="ID_Patient" Type="int" Nullable="false" />
+          <Property Name="ID_Package_Catalog" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Patient_Services">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Service_Catalog" Type="int" Nullable="false" />
+          <Property Name="ID_Patient" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Patients">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Surname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PIN" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Payments">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Surname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Card_Number" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="Exp_Date" Type="date" Nullable="false" />
+          <Property Name="CVV" Type="int" Nullable="false" />
+          <Property Name="JMBAG" Type="varchar" MaxLength="10" />
+          <Property Name="ID_Patient_Package" Type="int" />
+          <Property Name="ID_Patient_Service" Type="int" />
+          <Property Name="ID_Patient" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reports">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Disgnose" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Therapy" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Input_Date" Type="date" Nullable="false" />
+          <Property Name="ID_Patient" Type="int" Nullable="false" />
+          <Property Name="ID_Doctor" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Service_Catalog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Appointment_Appointment">
+          <End Role="Doctors" Type="Self.Doctors" Multiplicity="1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctors">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="ID_Doctor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointment_Patients">
+          <End Role="Patients" Type="Self.Patients" Multiplicity="1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="ID_Patient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointment_Requests_Patients">
+          <End Role="Patients" Type="Self.Patients" Multiplicity="1" />
+          <End Role="Appointment_Requests" Type="Self.Appointment_Requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Appointment_Requests">
+              <PropertyRef Name="ID_Patient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Packages/Services_Catalog_Health_Catalog">
+          <End Role="Health_Catalog" Type="Self.Health_Catalog" Multiplicity="1" />
+          <End Role="Packages/Services_Catalog" Type="Self.Packages/Services_Catalog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Health_Catalog">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Packages/Services_Catalog">
+              <PropertyRef Name="ID_Package" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Packages/Services_Catalog_Services">
+          <End Role="Package_Services" Type="Self.Package_Services" Multiplicity="1" />
+          <End Role="Packages/Services_Catalog" Type="Self.Packages/Services_Catalog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Package_Services">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Packages/Services_Catalog">
+              <PropertyRef Name="ID_Service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_Packages_Health_Catalog">
+          <End Role="Health_Catalog" Type="Self.Health_Catalog" Multiplicity="1" />
+          <End Role="Patient_Packages" Type="Self.Patient_Packages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Health_Catalog">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Patient_Packages">
+              <PropertyRef Name="ID_Package_Catalog" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_Packages_Patients">
+          <End Role="Patients" Type="Self.Patients" Multiplicity="1" />
+          <End Role="Patient_Packages" Type="Self.Patient_Packages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Patient_Packages">
+              <PropertyRef Name="ID_Patient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_Services_Patients">
+          <End Role="Patients" Type="Self.Patients" Multiplicity="1" />
+          <End Role="Patient_Services" Type="Self.Patient_Services" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Patient_Services">
+              <PropertyRef Name="ID_Patient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_Services_Service_Catalog">
+          <End Role="Service_Catalog" Type="Self.Service_Catalog" Multiplicity="1" />
+          <End Role="Patient_Services" Type="Self.Patient_Services" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service_Catalog">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Patient_Services">
+              <PropertyRef Name="ID_Service_Catalog" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payments_Patient_Packages">
+          <End Role="Patients" Type="Self.Patients" Multiplicity="1" />
+          <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Payments">
+              <PropertyRef Name="ID_Patient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payments_Patient_Services">
+          <End Role="Patients" Type="Self.Patients" Multiplicity="1" />
+          <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Payments">
+              <PropertyRef Name="ID_Patient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payments_Patients">
+          <End Role="Patients" Type="Self.Patients" Multiplicity="1" />
+          <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Payments">
+              <PropertyRef Name="ID_Patient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reports_Doctors">
+          <End Role="Doctors" Type="Self.Doctors" Multiplicity="1" />
+          <End Role="Reports" Type="Self.Reports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctors">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Reports">
+              <PropertyRef Name="ID_Doctor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reports_Patients">
+          <End Role="Patients" Type="Self.Patients" Multiplicity="1" />
+          <End Role="Reports" Type="Self.Reports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Reports">
+              <PropertyRef Name="ID_Patient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RWA2324_18_DBModelStoreContainer">
+          <EntitySet Name="Appointment" EntityType="Self.Appointment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Appointment_Requests" EntityType="Self.Appointment_Requests" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Doctors" EntityType="Self.Doctors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Health_Catalog" EntityType="Self.Health_Catalog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Package_Services" EntityType="Self.Package_Services" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient_Packages" EntityType="Self.Patient_Packages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient_Services" EntityType="Self.Patient_Services" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patients" EntityType="Self.Patients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payments" EntityType="Self.Payments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reports" EntityType="Self.Reports" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Service_Catalog" EntityType="Self.Service_Catalog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Packages/Services_Catalog" EntityType="Self.Packages/Services_Catalog" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Packages/Services_Catalog].[ID_Package] AS [ID_Package], 
+    [Packages/Services_Catalog].[ID_Service] AS [ID_Service]
+    FROM [dbo].[Packages/Services_Catalog] AS [Packages/Services_Catalog]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Appointment_Appointment" Association="Self.FK_Appointment_Appointment">
+            <End Role="Doctors" EntitySet="Doctors" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointment_Patients" Association="Self.FK_Appointment_Patients">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointment_Requests_Patients" Association="Self.FK_Appointment_Requests_Patients">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="Appointment_Requests" EntitySet="Appointment_Requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Packages/Services_Catalog_Health_Catalog" Association="Self.FK_Packages/Services_Catalog_Health_Catalog">
+            <End Role="Health_Catalog" EntitySet="Health_Catalog" />
+            <End Role="Packages/Services_Catalog" EntitySet="Packages/Services_Catalog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Packages/Services_Catalog_Services" Association="Self.FK_Packages/Services_Catalog_Services">
+            <End Role="Package_Services" EntitySet="Package_Services" />
+            <End Role="Packages/Services_Catalog" EntitySet="Packages/Services_Catalog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patient_Packages_Health_Catalog" Association="Self.FK_Patient_Packages_Health_Catalog">
+            <End Role="Health_Catalog" EntitySet="Health_Catalog" />
+            <End Role="Patient_Packages" EntitySet="Patient_Packages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patient_Packages_Patients" Association="Self.FK_Patient_Packages_Patients">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="Patient_Packages" EntitySet="Patient_Packages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patient_Services_Patients" Association="Self.FK_Patient_Services_Patients">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="Patient_Services" EntitySet="Patient_Services" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patient_Services_Service_Catalog" Association="Self.FK_Patient_Services_Service_Catalog">
+            <End Role="Service_Catalog" EntitySet="Service_Catalog" />
+            <End Role="Patient_Services" EntitySet="Patient_Services" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payments_Patient_Packages" Association="Self.FK_Payments_Patient_Packages">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="Payments" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payments_Patient_Services" Association="Self.FK_Payments_Patient_Services">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="Payments" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payments_Patients" Association="Self.FK_Payments_Patients">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="Payments" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reports_Doctors" Association="Self.FK_Reports_Doctors">
+            <End Role="Doctors" EntitySet="Doctors" />
+            <End Role="Reports" EntitySet="Reports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reports_Patients" Association="Self.FK_Reports_Patients">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="Reports" EntitySet="Reports" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RWA2324_18_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Appointment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Appointment_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ID_Doctor" Type="Int32" Nullable="false" />
+          <Property Name="ID_Patient" Type="Int32" Nullable="false" />
+          <Property Name="Zoom_Link" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Doctor" Relationship="Self.FK_Appointment_Appointment" FromRole="Appointment" ToRole="Doctors" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK_Appointment_Patients" FromRole="Appointment" ToRole="Patients" />
+        </EntityType>
+        <EntityType Name="Appointment_Requests">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Symptoms" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Request_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ID_Patient" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK_Appointment_Requests_Patients" FromRole="Appointment_Requests" ToRole="Patients" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="License_Num" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Appointments" Relationship="Self.FK_Appointment_Appointment" FromRole="Doctors" ToRole="Appointment" />
+          <NavigationProperty Name="Reports" Relationship="Self.FK_Reports_Doctors" FromRole="Doctors" ToRole="Reports" />
+        </EntityType>
+        <EntityType Name="Health_Catalog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="Max_Blood_Extractions" Type="Int32" Nullable="false" />
+          <Property Name="Max_Consultations" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Patient_Packages" Relationship="Self.FK_Patient_Packages_Health_Catalog" FromRole="Health_Catalog" ToRole="Patient_Packages" />
+          <NavigationProperty Name="Package_Services" Relationship="Self.Packages_Services_Catalog" FromRole="Health_Catalog" ToRole="Package_Services" />
+        </EntityType>
+        <EntityType Name="Package_Services">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Health_Catalog" Relationship="Self.Packages_Services_Catalog" FromRole="Package_Services" ToRole="Health_Catalog" />
+        </EntityType>
+        <EntityType Name="Patient_Packages">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Used_Consultations" Type="Int32" Nullable="false" />
+          <Property Name="Used_Blood_Extractions" Type="Int32" Nullable="false" />
+          <Property Name="ID_Patient" Type="Int32" Nullable="false" />
+          <Property Name="ID_Package_Catalog" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Health_Catalog" Relationship="Self.FK_Patient_Packages_Health_Catalog" FromRole="Patient_Packages" ToRole="Health_Catalog" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK_Patient_Packages_Patients" FromRole="Patient_Packages" ToRole="Patients" />
+        </EntityType>
+        <EntityType Name="Patient_Services">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Service_Catalog" Type="Int32" Nullable="false" />
+          <Property Name="ID_Patient" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK_Patient_Services_Patients" FromRole="Patient_Services" ToRole="Patients" />
+          <NavigationProperty Name="Service_Catalog" Relationship="Self.FK_Patient_Services_Service_Catalog" FromRole="Patient_Services" ToRole="Service_Catalog" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PIN" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Appointments" Relationship="Self.FK_Appointment_Patients" FromRole="Patients" ToRole="Appointment" />
+          <NavigationProperty Name="Appointment_Requests" Relationship="Self.FK_Appointment_Requests_Patients" FromRole="Patients" ToRole="Appointment_Requests" />
+          <NavigationProperty Name="Patient_Packages" Relationship="Self.FK_Patient_Packages_Patients" FromRole="Patients" ToRole="Patient_Packages" />
+          <NavigationProperty Name="Patient_Services" Relationship="Self.FK_Patient_Services_Patients" FromRole="Patients" ToRole="Patient_Services" />
+          <NavigationProperty Name="Payments" Relationship="Self.FK_Payments_Patient_Packages" FromRole="Patients" ToRole="Payments" />
+          <NavigationProperty Name="Payments1" Relationship="Self.FK_Payments_Patient_Services" FromRole="Patients" ToRole="Payments" />
+          <NavigationProperty Name="Payments2" Relationship="Self.FK_Payments_Patients" FromRole="Patients" ToRole="Payments" />
+          <NavigationProperty Name="Reports" Relationship="Self.FK_Reports_Patients" FromRole="Patients" ToRole="Reports" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Card_Number" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Exp_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CVV" Type="Int32" Nullable="false" />
+          <Property Name="JMBAG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Patient_Package" Type="Int32" />
+          <Property Name="ID_Patient_Service" Type="Int32" />
+          <Property Name="ID_Patient" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK_Payments_Patient_Packages" FromRole="Payments" ToRole="Patients" />
+          <NavigationProperty Name="Patient1" Relationship="Self.FK_Payments_Patient_Services" FromRole="Payments" ToRole="Patients" />
+          <NavigationProperty Name="Patient2" Relationship="Self.FK_Payments_Patients" FromRole="Payments" ToRole="Patients" />
+        </EntityType>
+        <EntityType Name="Report">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Disgnose" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Therapy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Input_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ID_Patient" Type="Int32" Nullable="false" />
+          <Property Name="ID_Doctor" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Doctor" Relationship="Self.FK_Reports_Doctors" FromRole="Reports" ToRole="Doctors" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK_Reports_Patients" FromRole="Reports" ToRole="Patients" />
+        </EntityType>
+        <EntityType Name="Service_Catalog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Patient_Services" Relationship="Self.FK_Patient_Services_Service_Catalog" FromRole="Service_Catalog" ToRole="Patient_Services" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Appointment_Appointment">
+          <End Role="Doctors" Type="Self.Doctor" Multiplicity="1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctors">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="ID_Doctor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointment_Patients">
+          <End Role="Patients" Type="Self.Patient" Multiplicity="1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="ID_Patient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointment_Requests_Patients">
+          <End Role="Patients" Type="Self.Patient" Multiplicity="1" />
+          <End Role="Appointment_Requests" Type="Self.Appointment_Requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Appointment_Requests">
+              <PropertyRef Name="ID_Patient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reports_Doctors">
+          <End Role="Doctors" Type="Self.Doctor" Multiplicity="1" />
+          <End Role="Reports" Type="Self.Report" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctors">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Reports">
+              <PropertyRef Name="ID_Doctor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_Packages_Health_Catalog">
+          <End Role="Health_Catalog" Type="Self.Health_Catalog" Multiplicity="1" />
+          <End Role="Patient_Packages" Type="Self.Patient_Packages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Health_Catalog">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Patient_Packages">
+              <PropertyRef Name="ID_Package_Catalog" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_Packages_Patients">
+          <End Role="Patients" Type="Self.Patient" Multiplicity="1" />
+          <End Role="Patient_Packages" Type="Self.Patient_Packages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Patient_Packages">
+              <PropertyRef Name="ID_Patient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_Services_Patients">
+          <End Role="Patients" Type="Self.Patient" Multiplicity="1" />
+          <End Role="Patient_Services" Type="Self.Patient_Services" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Patient_Services">
+              <PropertyRef Name="ID_Patient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_Services_Service_Catalog">
+          <End Role="Service_Catalog" Type="Self.Service_Catalog" Multiplicity="1" />
+          <End Role="Patient_Services" Type="Self.Patient_Services" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service_Catalog">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Patient_Services">
+              <PropertyRef Name="ID_Service_Catalog" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payments_Patient_Packages">
+          <End Role="Patients" Type="Self.Patient" Multiplicity="1" />
+          <End Role="Payments" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Payments">
+              <PropertyRef Name="ID_Patient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payments_Patient_Services">
+          <End Role="Patients" Type="Self.Patient" Multiplicity="1" />
+          <End Role="Payments" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Payments">
+              <PropertyRef Name="ID_Patient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payments_Patients">
+          <End Role="Patients" Type="Self.Patient" Multiplicity="1" />
+          <End Role="Payments" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Payments">
+              <PropertyRef Name="ID_Patient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reports_Patients">
+          <End Role="Patients" Type="Self.Patient" Multiplicity="1" />
+          <End Role="Reports" Type="Self.Report" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Reports">
+              <PropertyRef Name="ID_Patient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Packages_Services_Catalog">
+          <End Role="Health_Catalog" Type="Self.Health_Catalog" Multiplicity="*" />
+          <End Role="Package_Services" Type="Self.Package_Services" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="RWA2324_18_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Appointments" EntityType="Self.Appointment" />
+          <EntitySet Name="Appointment_Requests" EntityType="Self.Appointment_Requests" />
+          <EntitySet Name="Doctors" EntityType="Self.Doctor" />
+          <EntitySet Name="Health_Catalog" EntityType="Self.Health_Catalog" />
+          <EntitySet Name="Package_Services" EntityType="Self.Package_Services" />
+          <EntitySet Name="Patient_Packages" EntityType="Self.Patient_Packages" />
+          <EntitySet Name="Patient_Services" EntityType="Self.Patient_Services" />
+          <EntitySet Name="Patients" EntityType="Self.Patient" />
+          <EntitySet Name="Payments" EntityType="Self.Payment" />
+          <EntitySet Name="Reports" EntityType="Self.Report" />
+          <EntitySet Name="Service_Catalog" EntityType="Self.Service_Catalog" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <AssociationSet Name="FK_Appointment_Appointment" Association="Self.FK_Appointment_Appointment">
+            <End Role="Doctors" EntitySet="Doctors" />
+            <End Role="Appointment" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointment_Patients" Association="Self.FK_Appointment_Patients">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="Appointment" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointment_Requests_Patients" Association="Self.FK_Appointment_Requests_Patients">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="Appointment_Requests" EntitySet="Appointment_Requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reports_Doctors" Association="Self.FK_Reports_Doctors">
+            <End Role="Doctors" EntitySet="Doctors" />
+            <End Role="Reports" EntitySet="Reports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patient_Packages_Health_Catalog" Association="Self.FK_Patient_Packages_Health_Catalog">
+            <End Role="Health_Catalog" EntitySet="Health_Catalog" />
+            <End Role="Patient_Packages" EntitySet="Patient_Packages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patient_Packages_Patients" Association="Self.FK_Patient_Packages_Patients">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="Patient_Packages" EntitySet="Patient_Packages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patient_Services_Patients" Association="Self.FK_Patient_Services_Patients">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="Patient_Services" EntitySet="Patient_Services" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patient_Services_Service_Catalog" Association="Self.FK_Patient_Services_Service_Catalog">
+            <End Role="Service_Catalog" EntitySet="Service_Catalog" />
+            <End Role="Patient_Services" EntitySet="Patient_Services" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payments_Patient_Packages" Association="Self.FK_Payments_Patient_Packages">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="Payments" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payments_Patient_Services" Association="Self.FK_Payments_Patient_Services">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="Payments" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payments_Patients" Association="Self.FK_Payments_Patients">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="Payments" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reports_Patients" Association="Self.FK_Reports_Patients">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="Reports" EntitySet="Reports" />
+          </AssociationSet>
+          <AssociationSet Name="Packages_Services_Catalog" Association="Self.Packages_Services_Catalog">
+            <End Role="Health_Catalog" EntitySet="Health_Catalog" />
+            <End Role="Package_Services" EntitySet="Package_Services" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RWA2324_18_DBModelStoreContainer" CdmEntityContainer="RWA2324_18_DBEntities">
+          <EntitySetMapping Name="Appointments">
+            <EntityTypeMapping TypeName="RWA2324_18_DBModel.Appointment">
+              <MappingFragment StoreEntitySet="Appointment">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Appointment_Date" ColumnName="Appointment_Date" />
+                <ScalarProperty Name="ID_Doctor" ColumnName="ID_Doctor" />
+                <ScalarProperty Name="ID_Patient" ColumnName="ID_Patient" />
+                <ScalarProperty Name="Zoom_Link" ColumnName="Zoom_Link" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Appointment_Requests">
+            <EntityTypeMapping TypeName="RWA2324_18_DBModel.Appointment_Requests">
+              <MappingFragment StoreEntitySet="Appointment_Requests">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Symptoms" ColumnName="Symptoms" />
+                <ScalarProperty Name="Request_Date" ColumnName="Request_Date" />
+                <ScalarProperty Name="ID_Patient" ColumnName="ID_Patient" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Doctors">
+            <EntityTypeMapping TypeName="RWA2324_18_DBModel.Doctor">
+              <MappingFragment StoreEntitySet="Doctors">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="License_Num" ColumnName="License_Num" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Health_Catalog">
+            <EntityTypeMapping TypeName="RWA2324_18_DBModel.Health_Catalog">
+              <MappingFragment StoreEntitySet="Health_Catalog">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Max_Blood_Extractions" ColumnName="Max_Blood_Extractions" />
+                <ScalarProperty Name="Max_Consultations" ColumnName="Max_Consultations" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Package_Services">
+            <EntityTypeMapping TypeName="RWA2324_18_DBModel.Package_Services">
+              <MappingFragment StoreEntitySet="Package_Services">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patient_Packages">
+            <EntityTypeMapping TypeName="RWA2324_18_DBModel.Patient_Packages">
+              <MappingFragment StoreEntitySet="Patient_Packages">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Used_Consultations" ColumnName="Used_Consultations" />
+                <ScalarProperty Name="Used_Blood_Extractions" ColumnName="Used_Blood_Extractions" />
+                <ScalarProperty Name="ID_Patient" ColumnName="ID_Patient" />
+                <ScalarProperty Name="ID_Package_Catalog" ColumnName="ID_Package_Catalog" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patient_Services">
+            <EntityTypeMapping TypeName="RWA2324_18_DBModel.Patient_Services">
+              <MappingFragment StoreEntitySet="Patient_Services">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_Service_Catalog" ColumnName="ID_Service_Catalog" />
+                <ScalarProperty Name="ID_Patient" ColumnName="ID_Patient" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patients">
+            <EntityTypeMapping TypeName="RWA2324_18_DBModel.Patient">
+              <MappingFragment StoreEntitySet="Patients">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="PIN" ColumnName="PIN" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payments">
+            <EntityTypeMapping TypeName="RWA2324_18_DBModel.Payment">
+              <MappingFragment StoreEntitySet="Payments">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Card_Number" ColumnName="Card_Number" />
+                <ScalarProperty Name="Exp_Date" ColumnName="Exp_Date" />
+                <ScalarProperty Name="CVV" ColumnName="CVV" />
+                <ScalarProperty Name="JMBAG" ColumnName="JMBAG" />
+                <ScalarProperty Name="ID_Patient_Package" ColumnName="ID_Patient_Package" />
+                <ScalarProperty Name="ID_Patient_Service" ColumnName="ID_Patient_Service" />
+                <ScalarProperty Name="ID_Patient" ColumnName="ID_Patient" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reports">
+            <EntityTypeMapping TypeName="RWA2324_18_DBModel.Report">
+              <MappingFragment StoreEntitySet="Reports">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Disgnose" ColumnName="Disgnose" />
+                <ScalarProperty Name="Therapy" ColumnName="Therapy" />
+                <ScalarProperty Name="Input_Date" ColumnName="Input_Date" />
+                <ScalarProperty Name="ID_Patient" ColumnName="ID_Patient" />
+                <ScalarProperty Name="ID_Doctor" ColumnName="ID_Doctor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Service_Catalog">
+            <EntityTypeMapping TypeName="RWA2324_18_DBModel.Service_Catalog">
+              <MappingFragment StoreEntitySet="Service_Catalog">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="RWA2324_18_DBModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Packages_Services_Catalog" TypeName="RWA2324_18_DBModel.Packages_Services_Catalog" StoreEntitySet="Packages/Services_Catalog">
+            <EndProperty Name="Health_Catalog">
+              <ScalarProperty Name="ID" ColumnName="ID_Package" />
+            </EndProperty>
+            <EndProperty Name="Package_Services">
+              <ScalarProperty Name="ID" ColumnName="ID_Service" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

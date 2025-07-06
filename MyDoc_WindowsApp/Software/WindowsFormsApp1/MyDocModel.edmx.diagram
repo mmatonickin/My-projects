@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3da417c0884348b99d6c1e080abbe934" Name="Diagram1">
+        <EntityTypeShape EntityType="RWA2324_18_DBModel.Appointment" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RWA2324_18_DBModel.Appointment_Requests" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="RWA2324_18_DBModel.Doctor" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RWA2324_18_DBModel.Health_Catalog" Width="1.5" PointX="3.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RWA2324_18_DBModel.Package_Services" Width="1.5" PointX="6" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RWA2324_18_DBModel.Patient_Packages" Width="1.5" PointX="6" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RWA2324_18_DBModel.Patient_Services" Width="1.5" PointX="6" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="RWA2324_18_DBModel.Patient" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RWA2324_18_DBModel.Payment" Width="1.5" PointX="3" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RWA2324_18_DBModel.Report" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RWA2324_18_DBModel.Service_Catalog" Width="1.5" PointX="3.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RWA2324_18_DBModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="RWA2324_18_DBModel.FK_Appointment_Appointment" ManuallyRouted="false" />
+        <AssociationConnector Association="RWA2324_18_DBModel.FK_Appointment_Patients" ManuallyRouted="false" />
+        <AssociationConnector Association="RWA2324_18_DBModel.FK_Appointment_Requests_Patients" ManuallyRouted="false" />
+        <AssociationConnector Association="RWA2324_18_DBModel.FK_Reports_Doctors" ManuallyRouted="false" />
+        <AssociationConnector Association="RWA2324_18_DBModel.FK_Patient_Packages_Health_Catalog" ManuallyRouted="false" />
+        <AssociationConnector Association="RWA2324_18_DBModel.FK_Patient_Packages_Patients" ManuallyRouted="false" />
+        <AssociationConnector Association="RWA2324_18_DBModel.FK_Patient_Services_Patients" ManuallyRouted="false" />
+        <AssociationConnector Association="RWA2324_18_DBModel.FK_Patient_Services_Service_Catalog" ManuallyRouted="false" />
+        <AssociationConnector Association="RWA2324_18_DBModel.FK_Payments_Patient_Packages" ManuallyRouted="false" />
+        <AssociationConnector Association="RWA2324_18_DBModel.FK_Payments_Patient_Services" ManuallyRouted="false" />
+        <AssociationConnector Association="RWA2324_18_DBModel.FK_Payments_Patients" ManuallyRouted="false" />
+        <AssociationConnector Association="RWA2324_18_DBModel.FK_Reports_Patients" ManuallyRouted="false" />
+        <AssociationConnector Association="RWA2324_18_DBModel.Packages_Services_Catalog" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

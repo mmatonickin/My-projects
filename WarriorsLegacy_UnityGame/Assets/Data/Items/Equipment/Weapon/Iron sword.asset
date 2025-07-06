@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76e520989d613d44c9109a82db1149e5, type: 3}
+  m_Name: Iron sword
+  m_EditorClassIdentifier: 
+  itemType: 1
+  itemName: Iron sword
+  itemIcon: {fileID: 21300000, guid: c069fe69457f29e47b6ee0fa6764b4ca, type: 3}
+  itemId: 31d8cb259405ed642aa02bdb0687fc69
+  dropChance: 0
+  equipmentType: 0
+  itemCooldown: 0
+  itemEffects: []
+  strength: 0
+  agility: 0
+  intelligence: 0
+  vitality: 0
+  damage: 50
+  maxHealth: 0
+  armor: 0
+  evasion: 0
+  craftingMaterials:
+  - data: {fileID: 11400000, guid: 2dccc704d619a9c4bb52fd1e7513c886, type: 2}
+    stackSize: 1
+  - data: {fileID: 11400000, guid: 3fea680370a7fd941b9b013c3e0bb3cf, type: 2}
+    stackSize: 2
+  - data: {fileID: 11400000, guid: 2367133929c83464fa898c079c125edd, type: 2}
+    stackSize: 1
+  - data: {fileID: 11400000, guid: 8280ed0dcb71084488aa627e3a938eaf, type: 2}
+    stackSize: 1

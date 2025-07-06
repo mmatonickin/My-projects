@@ -1,0 +1,483 @@
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(../resursi/pozadina.jpg);
+    background-size: contain;
+    background-position: center;
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+header {
+    background-color: #007BFF;
+    color: white;
+    text-align: center;
+    padding: 16px; 
+    font-size: 24px;
+}
+
+nav {
+    background-color: #333;
+    color: white;
+    padding: 8px 16px; 
+    text-align: center;
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 16px; 
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    max-width: 800px;
+    margin: 16px auto;
+    background: white;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #007BFF;
+    font-size: 16px;
+    text-align: center;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    margin: 16px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+table {
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-top: 20px;
+    font-size: 16px; 
+    text-align: left; 
+}
+
+th {
+    background-color: #007BFF; 
+    color: white; 
+    padding: 10px; 
+    text-transform: uppercase; 
+    border: 1px solid #ddd; 
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+tr:hover {
+    background-color: #e4e0e0;
+}
+
+td {
+    padding: 10px; 
+    border: 1px solid #ddd; 
+}
+td img {
+    border-radius: 8px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+td a {
+    color: #007BFF; 
+    text-decoration: none; 
+}
+
+td a:hover {
+    text-decoration: underline; 
+    color: #0056b3; 
+}
+
+#results {
+    margin-top: 15px;
+    border-top: 1px solid #ccc;
+    padding-top: 15px;
+}
+
+#results p {
+    padding: 0.5px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 5px 0;
+}
+
+#pagination {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#pagination button {
+    padding: 5px 10px;
+    font-size: 15px;
+    margin: 0 4px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#pagination button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+#currentPage, #totalResults {
+    display: inline-block;
+    margin: 0 7px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    position: fixed;
+    bottom: 0; 
+    left: 0; 
+    width: 100%;
+}
+h2#naslov {
+    font-size: 20px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+}
+#sadrzaj {
+    margin-top: 15px;
+}
+
+#sadrzaj img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(90, 89, 89, 0.3);
+}
+
+#sadrzaj p {
+    font-size: 15px;
+    line-height: 20px;
+    color: #555;
+    margin: 15px 0;
+}
+
+#dodajBaza,
+#obrisiFilm
+{
+    margin-top: 20px;
+    text-align: center;
+}
+
+#dodajBaza button,
+#obrisiFilm button,
+button#zanrovi
+{
+    padding: 8px 20px;
+    font-size: 15px;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#dodajBaza button:hover,
+#obrisiFilm button:hover,
+button#zanrovi:hover
+ {
+    background-color: #114275;
+}
+
+#dodajBaza button:disabled,
+#obrisiFilm button:disabled
+{
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+
+#prijava-obrazac {
+    max-width: 300px; 
+    margin: 9.5% auto; 
+    background: white;
+    padding: 20px; 
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+form#login {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form#login label {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 3px;
+}
+
+form#login input[type="text"],
+form#login input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form#login input[type="text"]:focus,
+form#login input[type="password"]:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+form#login input[type="submit"] {
+    padding: 8px;
+    font-size: 15px;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form#login input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+#korime{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#registracija-obrazac {
+    max-width: 350px; 
+    margin: 20px auto; 
+    background: white;
+    padding: 20px; 
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+#poruka {
+    font-size: 15px;
+    color: #555;
+    text-align: center;
+    margin-bottom: 15px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#form label {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+#form input[type="text"],
+#form input[type="password"],
+#form input[type="email"] {
+    width: 100%;
+    padding: 8px; 
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#form input[type="text"]:focus,
+#form input[type="password"]:focus,
+#form input[type="email"]:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); 
+}
+
+#submit {
+    padding: 7px;
+    font-size: 14px;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+#submit:hover {
+    background-color: #0056b3; 
+}
+
+
+.zanrContainer {
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fdfdfd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.zanrContainer h3 {
+    font-size: 25px;
+    color: #007BFF;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+}
+
+.zanrContainer ul {
+    list-style-type: none; 
+    padding: 0;
+    margin: 0;
+}
+
+.zanrContainer li {
+    margin: 5px 0;
+}
+
+.zanrContainer li a {
+    color: #007BFF;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.zanrContainer li a:hover {
+    text-decoration: underline;
+    color: #0056b3; 
+}
+
+.zanrContainer p {
+    font-size: 15px;
+    color: #888;
+    margin-top: 7px;
+
+}
+#zanroviBaza,
+#zanroviTMDB {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    flex: 1 1 calc(50% - 15px);
+    background-color: #fdfdfd;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+#zanroviBaza h3,
+#zanroviTMDB h3 {
+    font-size: 25px;
+    color: #007BFF;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+}
+#zanroviBaza ul,
+#zanroviTMDB ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+#zanroviBaza li,
+#zanroviTMDB li {
+    margin-bottom: 16px;
+}
+
+#zanroviBaza li a,
+#zanroviTMDB li a {
+    color: #007BFF;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+#zanroviBaza li a:hover,
+#zanroviTMDB li a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+button {
+    padding: 8px 16px;
+    font-size: 14.4px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+#zanroviTMDB button {
+    background-color: #007BFF;
+    color: white;
+}
+
+#zanroviTMDB button:hover {
+    background-color: #0056b3;;
+}
+
+#zanroviBaza button {
+    background-color: #007BFF;
+    color: white;
+}
+
+#zanroviBaza button:hover {
+    background-color: #0056b3;
+}
+
+
+
+

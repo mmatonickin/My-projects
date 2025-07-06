@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DBC088C8-8566-47E6-868A-82282650C8FD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MyDoc</RootNamespace>
+    <AssemblyName>MyDoc</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Appointment.cs">
+      <DependentUpon>MyDocModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppointmentView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AppointmentView.Designer.cs">
+      <DependentUpon>AppointmentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Appointment_Requests.cs">
+      <DependentUpon>MyDocModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BasicPaket.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BasicPaket.Designer.cs">
+      <DependentUpon>BasicPaket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BuyPackage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BuyPackage.Designer.cs">
+      <DependentUpon>BuyPackage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BuyService.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BuyService.Designer.cs">
+      <DependentUpon>BuyService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor.cs">
+      <DependentUpon>MyDocModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAppointmentRequest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAppointmentRequest.Designer.cs">
+      <DependentUpon>FrmAppointmentRequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmChoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmChoice.Designer.cs">
+      <DependentUpon>FrmChoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDoctors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDoctors.Designer.cs">
+      <DependentUpon>FrmDoctors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLoginDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLoginDoctor.Designer.cs">
+      <DependentUpon>FrmLoginDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLoginPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLoginPatient.Designer.cs">
+      <DependentUpon>FrmLoginPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPatients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPatients.Designer.cs">
+      <DependentUpon>FrmPatients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPayment.Designer.cs">
+      <DependentUpon>FrmPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRegistrationDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRegistrationDoctor.Designer.cs">
+      <DependentUpon>FrmRegistrationDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRegistrationPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRegistrationPatient.Designer.cs">
+      <DependentUpon>FrmRegistrationPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReports.Designer.cs">
+      <DependentUpon>FrmReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSetAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSetAppointment.Designer.cs">
+      <DependentUpon>FrmSetAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Health_Catalog.cs">
+      <DependentUpon>MyDocModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Appointment.cs" />
+    <Compile Include="Models\Appointment_Requests.cs" />
+    <Compile Include="Models\Doctor.cs" />
+    <Compile Include="Models\HashPassword.cs" />
+    <Compile Include="Models\Health_Catalog.cs" />
+    <Compile Include="Models\LoggedDoctorID.cs" />
+    <Compile Include="Models\LoggedPatientID.cs" />
+    <Compile Include="Models\Package_Services.cs" />
+    <Compile Include="Models\Patient.cs" />
+    <Compile Include="Models\Patient_Packages.cs" />
+    <Compile Include="Models\Patient_Services.cs" />
+    <Compile Include="Models\Payment.cs" />
+    <Compile Include="Models\Report.cs" />
+    <Compile Include="Models\Service_Catalog.cs" />
+    <Compile Include="MyDocModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyDocModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyDocModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyDocModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyDocModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyDocModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Package_Services.cs">
+      <DependentUpon>MyDocModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Patient.cs">
+      <DependentUpon>MyDocModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Patient_Packages.cs">
+      <DependentUpon>MyDocModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Patient_Services.cs">
+      <DependentUpon>MyDocModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Payment.cs">
+      <DependentUpon>MyDocModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report.cs">
+      <DependentUpon>MyDocModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Reports.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports.Designer.cs">
+      <DependentUpon>Reports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportView.Designer.cs">
+      <DependentUpon>ReportView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Service_Catalog.cs">
+      <DependentUpon>MyDocModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SetAppointment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SetAppointment.Designer.cs">
+      <DependentUpon>SetAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>MyDocModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewPatients.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ViewPatients.Designer.cs">
+      <DependentUpon>ViewPatients.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AppointmentView.resx">
+      <DependentUpon>AppointmentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BasicPaket.resx">
+      <DependentUpon>BasicPaket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuyPackage.resx">
+      <DependentUpon>BuyPackage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuyService.resx">
+      <DependentUpon>BuyService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAppointmentRequest.resx">
+      <DependentUpon>FrmAppointmentRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmChoice.resx">
+      <DependentUpon>FrmChoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDoctors.resx">
+      <DependentUpon>FrmDoctors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLoginDoctor.resx">
+      <DependentUpon>FrmLoginDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLoginPatient.resx">
+      <DependentUpon>FrmLoginPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPatients.resx">
+      <DependentUpon>FrmPatients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPayment.resx">
+      <DependentUpon>FrmPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegistrationDoctor.resx">
+      <DependentUpon>FrmRegistrationDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegistrationPatient.resx">
+      <DependentUpon>FrmRegistrationPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReports.resx">
+      <DependentUpon>FrmReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSetAppointment.resx">
+      <DependentUpon>FrmSetAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Reports.resx">
+      <DependentUpon>Reports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportView.resx">
+      <DependentUpon>ReportView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetAppointment.resx">
+      <DependentUpon>SetAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewPatients.resx">
+      <DependentUpon>ViewPatients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="MyDocModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MyDocModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="MyDocModel.edmx.diagram">
+      <DependentUpon>MyDocModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MyDocModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MyDocModel.Context.cs</LastGenOutput>
+      <DependentUpon>MyDocModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="MyDocModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MyDocModel.edmx</DependentUpon>
+      <LastGenOutput>MyDocModel.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\doctor_921059.png" />
+    <None Include="Resources\hospitalisation_2302715.png" />
+    <None Include="Resources\advice.png" />
+    <None Include="Resources\blood-donation.png" />
+    <None Include="Resources\doctors-office.png" />
+    <None Include="Resources\medical-team.png" />
+    <None Include="Resources\health-insurance_7095376.png" />
+    <None Include="Resources\health-insurance_6188406.png" />
+    <None Include="Resources\health-insurance_10571117.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
+</Project>
