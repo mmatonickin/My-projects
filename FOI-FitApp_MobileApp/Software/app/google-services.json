@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "549369430423",
+    "project_id": "rmai2425",
+    "storage_bucket": "rmai2425.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:549369430423:android:b63ebcd3a5f5dd7e5fc4d2",
+        "android_client_info": {
+          "package_name": "com.foi.fitness.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIJQRJ3IeZLKKZYga0pyBnD9dt_lYo4B4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

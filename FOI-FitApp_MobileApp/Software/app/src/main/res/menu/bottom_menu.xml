@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bottom_training"
+        android:title="Training"
+        android:icon="@drawable/baseline_directions_run_24"/>
+
+    <item
+        android:id="@+id/bottom_meal"
+        android:title="Meal"
+        android:icon="@drawable/baseline_dining_24"/>
+
+    <item
+        android:id="@+id/bottom_recipe"
+        android:title="Recipe"
+        android:icon="@drawable/baseline_list_alt_24"/>
+
+    <item
+        android:id="@+id/bottom_game"
+        android:title="Game"
+        android:icon="@drawable/baseline_games_24"/>
+</menu>

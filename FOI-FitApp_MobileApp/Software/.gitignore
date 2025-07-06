@@ -357,4 +357,13 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
+# Android/Gradle specific
+.gradle/
+.idea/
+local.properties
+*.iml
+build/
+*/build/
+**/build/
+
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio

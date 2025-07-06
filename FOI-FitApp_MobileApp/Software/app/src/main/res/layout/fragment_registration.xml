@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/login_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="5dp"
+        android:paddingTop="50dp"
+        android:maxWidth="487dp">
+
+        <EditText
+            android:id="@+id/name_et"
+            android:layout_width="283dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:autofillHints="Name"
+            android:hint="@string/name"
+            android:inputType="text"
+            android:textColorHint="#546E7A" />
+
+        <EditText
+            android:id="@+id/surname_et"
+            android:layout_width="286dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:autofillHints="Surname"
+            android:hint="@string/surname"
+            android:inputType="text"
+            android:textColor="#000000"
+            android:textColorHint="#546E7A" />
+
+        <EditText
+            android:id="@+id/weight_et"
+            android:layout_width="286dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:autofillHints="weight"
+            android:hint="@string/weight"
+            android:inputType="number"
+            android:textColor="#000000"
+            android:textColorHint="#546E7A" />
+
+        <EditText
+            android:id="@+id/height_et"
+            android:layout_width="286dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:autofillHints="Height"
+            android:hint="@string/height"
+            android:inputType="number"
+            android:textColor="#000000"
+            android:textColorHint="#546E7A" />
+
+        <EditText
+            android:id="@+id/age_et"
+            android:layout_width="286dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:autofillHints="Age"
+            android:hint="@string/age"
+            android:inputType="number"
+            android:textColor="#000000"
+            android:textColorHint="#546E7A" />
+
+        <RadioGroup
+            android:id="@+id/genre_group"
+            android:layout_width="wrap_content"
+            android:layout_height="31dp"
+            android:layout_marginTop="1dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radio_female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/genre1" />
+
+            <RadioButton
+                android:id="@+id/radio_male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/genre" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/email_et"
+            android:layout_width="286dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:autofillHints="Email"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:textColor="#000000"
+            android:textColorHint="#546E7A" />
+
+        <EditText
+            android:id="@+id/username_et"
+            android:layout_width="286dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:autofillHints="Username"
+            android:hint="@string/username"
+            android:inputType="text"
+            android:textColor="#000000"
+            android:textColorHint="#546E7A" />
+
+        <EditText
+            android:id="@+id/password_et"
+            android:layout_width="286dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:autofillHints="Password"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:textColor="#000000"
+            android:textColorHint="#546E7A" />
+
+        <Button
+            android:id="@+id/RegisterUser"
+            android:layout_width="249dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#1aad4e"
+            android:text="@string/Register" />
+
+    </LinearLayout>
+</ScrollView>

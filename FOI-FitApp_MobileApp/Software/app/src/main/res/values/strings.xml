@@ -1,3 +1,103 @@
 <resources>
     <string name="app_name">FitnessApp</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="Register">Register</string>
+    <string name="already_registered">Login</string>
+    <string name="image">Picture</string>
+
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="weight">Weight (kg)</string>
+    <string name="height">Height (cm)</string>
+    <string name="genre1">Female</string>
+    <string name="email">Email</string>
+    <string name="age">Age</string>
+    <string name="highScore">High Score</string>
+    <string name="genre">Male</string>
+
+    <string name="registration_success">Successful registration</string>
+    <string name="registration_error_username_exist">Username already exists</string>
+    <string name="registration_error_invalid_data">Not all fields are filled in or the entry is invalid.</string>
+    <string name="registration_error_unknown_exception">An error occurred, try again.</string>
+
+    <string name="login">Login</string>
+    <string name="go_to_signup">You are not our user already? Register here.</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="training">Training</string>
+    <string name="meal">Meal</string>
+    <string name="recipe">Recipe</string>
+    <string name="game">Game</string>
+
+    <string name="drawer_open">Open menu</string>
+    <string name="drawer_close">Close menu</string>
+
+    <string name="training_schedule">Training Schedule</string>
+
+    <string-array name="training_types">
+        <item>Select training type</item>
+        <item>Walk</item>
+        <item>Run</item>
+    </string-array>
+
+    <string name="select_date">Select date</string>
+    <string name="input_date">dd.mm.yyyy.</string>
+    <string name="save_training">Save Training</string>
+
+    <string name="status_done">Done</string>
+    <string name="status_upcoming">Upcoming</string>
+
+    <string name="error_select_training_type">Please select a training type.</string>
+    <string name="error_select_date">Please select a date.</string>
+    <string name="success_training_saved">Training successfully scheduled!</string>
+    <string name="add_a_recipe">Add a recipe</string>
+    <string name="dish_name">Dish name:</string>
+    <string name="ingredients">Ingredients:</string>
+    <string name="procedure">Procedure:</string>
+    <string name="estimated_calories_kcal">Estimated calories (kcal):</string>
+    <string name="add">Add</string>
+    <string name="add_recipe">Add recipe</string>
+
+    <string name="select_training_goal_default_value">Select training goal</string>
+    <string name="select_training_type_default_value">Select training goal</string>
+
+    <string name="filter">Filter</string>
+    <string-array name="ingredient_filter_options">
+        <item>All</item>
+        <item>test</item>
+        <item>Chicken</item>
+        <item>Beef</item>
+        <item>Fish</item>
+        <item>Pork</item>
+        <item>Eggs</item>
+        <item>Carrot</item>
+        <item>Cheese</item>
+        <item>Spinach</item>
+    </string-array>
+    <string name="no_recipes">There are no recipes added here yet, would you like to add them?</string>
+    <string name="sort">Sort</string>
+    <string name="search_images">Search images...</string>
+    <string name="search">Search</string>
+    <string name="tap_to_search_image">Tap to search image</string>
+    <string name="image_url">Image URL</string>
+    <string name="image_preview">Image preview</string>
+    <string name="enter_search_query">Please enter a search query</string>
+    <string name="favorite_hearth">Favorite hearth</string>
+    <string name="play">Play</string>
+    <string name="best_scores">Best Scores</string>
+    <string name="play_game">Play</string>
+    <string name="enter_calories_burned">Enter calories burned</string>
+    <string name="suggest_a_meal">Suggest a meal</string>
+
+    <string-array name="activity_types">
+        <item>@string/select_training_type_default_value</item>
+        <item>Walk</item>
+        <item>Run</item>
+    </string-array>
+
+    <string-array name="activity_goals">
+        <item>@string/select_training_goal_default_value</item>
+    </string-array>
+
+
 </resources>
